@@ -1,2 +1,2 @@
-# Around The Biscuit
-Project for the Brackeys 2025.2  Game Jam
+# Endless Oresto
+A variation of the Chrome Dinosaur in Oresto's fashion.
