@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="GameParams" load_steps=2 format=3 uid="uid://3inqw8wyarx1"]
+
+[ext_resource type="Script" uid="uid://bhtsbvuqdigsl" path="res://Game/game_params.gd" id="1_1u5qp"]
+
+[resource]
+script = ExtResource("1_1u5qp")
+metadata/_custom_type_script = "uid://bhtsbvuqdigsl"

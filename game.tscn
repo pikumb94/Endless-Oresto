@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ifmtfsh8pof0"]
+
+[ext_resource type="Script" uid="uid://dd4gluxie1dd3" path="res://Game/game_manager.gd" id="1_feb5d"]
+[ext_resource type="PackedScene" uid="uid://sksw3nhetdfi" path="res://background.tscn" id="2_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://dqoc0nn66v53e" path="res://player.tscn" id="3_7jktm"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("1_feb5d")
+
+[node name="Background" parent="." instance=ExtResource("2_fc0e3")]
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(317, 162)
+
+[node name="Player" parent="." instance=ExtResource("3_7jktm")]
+position = Vector2(62, 301)
