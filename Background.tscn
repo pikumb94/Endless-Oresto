@@ -1,20 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://sksw3nhetdfi"]
+[gd_scene load_steps=8 format=3 uid="uid://sksw3nhetdfi"]
 
 [ext_resource type="Texture2D" uid="uid://cvind0ra4ca7x" path="res://Art/Background/background 3/Plan 4.png" id="1_jqsg2"]
 [ext_resource type="Texture2D" uid="uid://b28v6mmnq34kk" path="res://Art/Background/background 3/Plan 3.png" id="2_8xc84"]
 [ext_resource type="Texture2D" uid="uid://cskkqgqlid14x" path="res://Art/Background/Desert/BG-sun.png" id="3_ynkqc"]
+[ext_resource type="Texture2D" uid="uid://bp08kd5piffmj" path="res://Art/Background/background 4/Plan 1.png" id="4_splo0"]
+
+[sub_resource type="Gradient" id="Gradient_splo0"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.21621622)
+colors = PackedColorArray(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_eq6nc"]
+gradient = SubResource("Gradient_splo0")
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eq6nc"]
 
 [node name="Background" type="Node2D"]
 
 [node name="PlanSky" type="Parallax2D" parent="."]
 repeat_size = Vector2(576, 0)
 
-[node name="CanvasColor" type="ColorRect" parent="PlanSky"]
-offset_left = -290.0
-offset_top = -253.0
-offset_right = 288.0
-offset_bottom = 161.0
-color = Color(0.24, 0.23808, 0.2304, 1)
+[node name="Sprite2D" type="Sprite2D" parent="PlanSky"]
+position = Vector2(288, 162)
+texture = SubResource("GradientTexture1D_eq6nc")
+region_enabled = true
+region_rect = Rect2(0, 0, 576, 324)
+
+[node name="Sun" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.3, 1)
+repeat_size = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sun"]
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_ynkqc")
+centered = false
 
 [node name="HighHills" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.5, 1)
@@ -22,6 +41,7 @@ repeat_size = Vector2(576, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="HighHills"]
 texture = ExtResource("1_jqsg2")
+centered = false
 
 [node name="LowerHills" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.7, 1)
@@ -29,12 +49,17 @@ repeat_size = Vector2(576, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="LowerHills"]
 texture = ExtResource("2_8xc84")
+centered = false
 
-[node name="Sun" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.3, 1)
+[node name="Ground" type="Parallax2D" parent="."]
 repeat_size = Vector2(576, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Sun"]
-position = Vector2(207.00002, -182)
-scale = Vector2(2.5, 2.5)
-texture = ExtResource("3_ynkqc")
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+texture = ExtResource("4_splo0")
+centered = false
+
+[node name="CollisionShape2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 325)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D"]
+shape = SubResource("WorldBoundaryShape2D_eq6nc")

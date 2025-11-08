@@ -10,11 +10,21 @@ config_version=5
 
 [application]
 
-config/name="Around The Biscuit"
-run/main_scene="uid://sksw3nhetdfi"
+config/name="Endless Oresto"
+run/main_scene="uid://ifmtfsh8pof0"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameInstance="*res://game_instance.gd"
+
+[display]
+
+window/size/viewport_width=576
+window/size/viewport_height=324
+
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
