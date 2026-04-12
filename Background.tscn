@@ -1,65 +1,78 @@
-[gd_scene load_steps=8 format=3 uid="uid://sksw3nhetdfi"]
+[gd_scene format=3 uid="uid://sksw3nhetdfi"]
 
-[ext_resource type="Texture2D" uid="uid://cvind0ra4ca7x" path="res://Art/Background/background 3/Plan 4.png" id="1_jqsg2"]
 [ext_resource type="Texture2D" uid="uid://b28v6mmnq34kk" path="res://Art/Background/background 3/Plan 3.png" id="2_8xc84"]
+[ext_resource type="Texture2D" uid="uid://dtedc6m0fcg75" path="res://Art/Spritesheet/spritesheet_orestogame_transparent_mountains.png" id="2_ynkqc"]
 [ext_resource type="Texture2D" uid="uid://cskkqgqlid14x" path="res://Art/Background/Desert/BG-sun.png" id="3_ynkqc"]
-[ext_resource type="Texture2D" uid="uid://bp08kd5piffmj" path="res://Art/Background/background 4/Plan 1.png" id="4_splo0"]
+[ext_resource type="Texture2D" uid="uid://buxuxlt8ohjof" path="res://Art/Spritesheet/spritesheet_orestogame_transparent_cut.png" id="4_ahmgh"]
 
 [sub_resource type="Gradient" id="Gradient_splo0"]
 interpolation_mode = 1
-offsets = PackedFloat32Array(0.21621622)
-colors = PackedColorArray(0.2, 0.2, 0.2, 1)
+offsets = PackedFloat32Array(0.004115226)
+colors = PackedColorArray(1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_eq6nc"]
 gradient = SubResource("Gradient_splo0")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsm5t"]
+atlas = ExtResource("2_ynkqc")
+region = Rect2(0, 32, 1000, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxry3"]
+atlas = ExtResource("4_ahmgh")
+region = Rect2(0, 96, 1000, 32)
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eq6nc"]
 
-[node name="Background" type="Node2D"]
+[node name="Background" type="Node2D" unique_id=568650407]
 
-[node name="PlanSky" type="Parallax2D" parent="."]
-repeat_size = Vector2(576, 0)
+[node name="PlanSky" type="Parallax2D" parent="." unique_id=1684149729]
+repeat_size = Vector2(500, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="PlanSky"]
+[node name="Sprite2D" type="Sprite2D" parent="PlanSky" unique_id=1320465923]
 position = Vector2(288, 162)
 texture = SubResource("GradientTexture1D_eq6nc")
 region_enabled = true
 region_rect = Rect2(0, 0, 576, 324)
 
-[node name="Sun" type="Parallax2D" parent="."]
+[node name="Sun" type="Parallax2D" parent="." unique_id=218222842]
 scroll_scale = Vector2(0.3, 1)
-repeat_size = Vector2(576, 0)
+repeat_size = Vector2(500, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Sun"]
+[node name="Sprite2D" type="Sprite2D" parent="Sun" unique_id=927006452]
+visible = false
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("3_ynkqc")
 centered = false
 
-[node name="HighHills" type="Parallax2D" parent="."]
+[node name="HighHills" type="Parallax2D" parent="." unique_id=1554067090]
 scroll_scale = Vector2(0.5, 1)
-repeat_size = Vector2(576, 0)
+repeat_size = Vector2(1000, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="HighHills"]
-texture = ExtResource("1_jqsg2")
+[node name="Sprite2D" type="Sprite2D" parent="HighHills" unique_id=762850554]
+position = Vector2(0, 228)
+texture = SubResource("AtlasTexture_nsm5t")
 centered = false
 
-[node name="LowerHills" type="Parallax2D" parent="."]
+[node name="LowerHills" type="Parallax2D" parent="." unique_id=2118883485]
 scroll_scale = Vector2(0.7, 1)
-repeat_size = Vector2(576, 0)
+repeat_size = Vector2(500, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="LowerHills"]
+[node name="Sprite2D" type="Sprite2D" parent="LowerHills" unique_id=818097259]
+visible = false
 texture = ExtResource("2_8xc84")
 centered = false
 
-[node name="Ground" type="Parallax2D" parent="."]
-repeat_size = Vector2(576, 0)
+[node name="Ground" type="Parallax2D" parent="." unique_id=1569992221]
+repeat_size = Vector2(1000, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Ground"]
-texture = ExtResource("4_splo0")
+[node name="Sprite2D" type="Sprite2D" parent="Ground" unique_id=453939505]
+position = Vector2(0, 292)
+texture = SubResource("AtlasTexture_mxry3")
 centered = false
 
-[node name="CollisionShape2D" type="StaticBody2D" parent="."]
+[node name="CollisionShape2D" type="StaticBody2D" parent="." unique_id=1242931967]
 position = Vector2(0, 325)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D" unique_id=650057907]
+position = Vector2(0, -21)
 shape = SubResource("WorldBoundaryShape2D_eq6nc")

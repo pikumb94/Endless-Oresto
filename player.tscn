@@ -123,5 +123,6 @@ shape = SubResource("RectangleShape2D_0rwas")
 position = Vector2(9.536743e-07, -4.7683716e-07)
 scale = Vector2(1.8333331, 1.9166666)
 sprite_frames = SubResource("SpriteFrames_e80uo")
-animation = &"Jump_Apex"
+animation = &"Run"
 autoplay = "Run"
+frame_progress = 0.098614745

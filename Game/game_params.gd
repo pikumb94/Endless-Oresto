@@ -7,4 +7,4 @@ extends Resource
 var speed: float = 300.0
 
 @export_range(0.0, 1000.0, 0.1, "or_greater", "hide_slider")
-var jump_velocity: float = 400.0
+var jump_velocity: float = 350.0
