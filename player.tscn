@@ -126,3 +126,11 @@ sprite_frames = SubResource("SpriteFrames_e80uo")
 animation = &"Run"
 autoplay = "Run"
 frame_progress = 0.098614745
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1730000020]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox" unique_id=1730000021]
+polygon = PackedVector2Array(-2, -13, 5, -13, 5, -2, 9, 0, 9, 12, 5, 17, -3, 17, -6, 12, -6, 2, -2, -2)

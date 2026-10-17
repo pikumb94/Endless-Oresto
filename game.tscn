@@ -3,16 +3,29 @@
 [ext_resource type="Script" uid="uid://dd4gluxie1dd3" path="res://Game/game_manager.gd" id="1_feb5d"]
 [ext_resource type="PackedScene" uid="uid://sksw3nhetdfi" path="res://Background.tscn" id="2_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://dqoc0nn66v53e" path="res://player.tscn" id="3_7jktm"]
+[ext_resource type="PackedScene" path="res://Obstacles/sock_1.tscn" id="4_sock1"]
+[ext_resource type="PackedScene" path="res://Obstacles/sock_2.tscn" id="5_sock2"]
+[ext_resource type="PackedScene" path="res://Obstacles/sock_3.tscn" id="6_sock3"]
+[ext_resource type="PackedScene" path="res://Obstacles/turtle.tscn" id="7_turtle"]
+[ext_resource type="Script" path="res://Game/hud.gd" id="8_hud"]
 
 [node name="Node2D" type="Node2D" unique_id=1198393861]
 
 [node name="GameManager" type="Node" parent="." unique_id=116808845]
 script = ExtResource("1_feb5d")
+obstacle_scenes = Array[PackedScene]([ExtResource("4_sock1"), ExtResource("4_sock1"), ExtResource("5_sock2"), ExtResource("5_sock2"), ExtResource("6_sock3"), ExtResource("7_turtle")])
 
 [node name="Background" parent="." unique_id=1044810845 instance=ExtResource("2_fc0e3")]
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1082208021]
 position = Vector2(250, 256)
 
+[node name="Obstacles" type="Node2D" parent="." unique_id=1730000010]
+
 [node name="Player" parent="." unique_id=1019299001 instance=ExtResource("3_7jktm")]
 position = Vector2(62, 276)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1730000011]
+
+[node name="Hud" type="Node2D" parent="HUD" unique_id=1730000012]
+script = ExtResource("8_hud")

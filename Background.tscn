@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dtedc6m0fcg75" path="res://Art/Spritesheet/spritesheet_orestogame_transparent_mountains.png" id="2_ynkqc"]
 [ext_resource type="Texture2D" uid="uid://cskkqgqlid14x" path="res://Art/Background/Desert/BG-sun.png" id="3_ynkqc"]
 [ext_resource type="Texture2D" uid="uid://buxuxlt8ohjof" path="res://Art/Spritesheet/spritesheet_orestogame_transparent_cut.png" id="4_ahmgh"]
+[ext_resource type="Texture2D" uid="uid://b0wjcungkmo7c" path="res://Art/Spritesheet/spritesheet_orestogame_transparent.png" id="5_sheet"]
+[ext_resource type="Script" path="res://Game/decoration_layer.gd" id="6_decor"]
 
 [sub_resource type="Gradient" id="Gradient_splo0"]
 interpolation_mode = 1
@@ -20,6 +22,70 @@ region = Rect2(0, 32, 1000, 73)
 [sub_resource type="AtlasTexture" id="AtlasTexture_mxry3"]
 atlas = ExtResource("4_ahmgh")
 region = Rect2(0, 96, 1000, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cloud1"]
+atlas = ExtResource("5_sheet")
+region = Rect2(249, 40, 28, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cloud2"]
+atlas = ExtResource("5_sheet")
+region = Rect2(279, 33, 9, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cloud3"]
+atlas = ExtResource("5_sheet")
+region = Rect2(283, 35, 38, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cloud4"]
+atlas = ExtResource("5_sheet")
+region = Rect2(324, 31, 31, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cloud5"]
+atlas = ExtResource("5_sheet")
+region = Rect2(358, 30, 35, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cloud6"]
+atlas = ExtResource("5_sheet")
+region = Rect2(395, 38, 28, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mon_obelisk"]
+atlas = ExtResource("5_sheet")
+region = Rect2(318, 12, 7, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mon_tower"]
+atlas = ExtResource("5_sheet")
+region = Rect2(330, 14, 9, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mon_lattice"]
+atlas = ExtResource("5_sheet")
+region = Rect2(341, 13, 15, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mon_temple"]
+atlas = ExtResource("5_sheet")
+region = Rect2(358, 14, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mon_castle"]
+atlas = ExtResource("5_sheet")
+region = Rect2(376, 12, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_far1"]
+atlas = ExtResource("5_sheet")
+region = Rect2(352, 4, 5, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_far2"]
+atlas = ExtResource("5_sheet")
+region = Rect2(359, 4, 7, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_far3"]
+atlas = ExtResource("5_sheet")
+region = Rect2(368, 4, 7, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_far4"]
+atlas = ExtResource("5_sheet")
+region = Rect2(377, 4, 7, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_far5"]
+atlas = ExtResource("5_sheet")
+region = Rect2(386, 4, 7, 6)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eq6nc"]
 
@@ -44,6 +110,15 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("3_ynkqc")
 centered = false
 
+[node name="Clouds" type="Parallax2D" parent="." unique_id=1730000001]
+scroll_scale = Vector2(0.15, 1)
+script = ExtResource("6_decor")
+textures = Array[Texture2D]([SubResource("AtlasTexture_cloud1"), SubResource("AtlasTexture_cloud2"), SubResource("AtlasTexture_cloud3"), SubResource("AtlasTexture_cloud4"), SubResource("AtlasTexture_cloud5"), SubResource("AtlasTexture_cloud6")])
+gap_min = 40.0
+gap_max = 180.0
+bottom_y_min = 210.0
+bottom_y_max = 226.0
+
 [node name="HighHills" type="Parallax2D" parent="." unique_id=1554067090]
 scroll_scale = Vector2(0.5, 1)
 repeat_size = Vector2(1000, 0)
@@ -61,6 +136,22 @@ repeat_size = Vector2(500, 0)
 visible = false
 texture = ExtResource("2_8xc84")
 centered = false
+
+[node name="FarMonuments" type="Parallax2D" parent="." unique_id=1730000002]
+scroll_scale = Vector2(0.6, 1)
+script = ExtResource("6_decor")
+textures = Array[Texture2D]([SubResource("AtlasTexture_far1"), SubResource("AtlasTexture_far2"), SubResource("AtlasTexture_far3"), SubResource("AtlasTexture_far4"), SubResource("AtlasTexture_far5")])
+gap_min = 80.0
+gap_max = 400.0
+bottom_y_min = 300.0
+bottom_y_max = 300.0
+
+[node name="Monuments" type="Parallax2D" parent="." unique_id=1730000003]
+scroll_scale = Vector2(0.8, 1)
+script = ExtResource("6_decor")
+textures = Array[Texture2D]([SubResource("AtlasTexture_mon_obelisk"), SubResource("AtlasTexture_mon_tower"), SubResource("AtlasTexture_mon_lattice"), SubResource("AtlasTexture_mon_temple"), SubResource("AtlasTexture_mon_castle")])
+gap_min = 250.0
+gap_max = 900.0
 
 [node name="Ground" type="Parallax2D" parent="." unique_id=1569992221]
 repeat_size = Vector2(1000, 0)
