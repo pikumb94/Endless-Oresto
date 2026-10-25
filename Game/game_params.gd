@@ -61,3 +61,16 @@ var score_per_pixel: float = 0.04
 ## Seconds after game over before jump restarts the run.
 @export_range(0.0, 5.0, 0.01, "or_greater", "hide_slider")
 var restart_delay: float = 0.5
+
+## Score multiple that plays the "point" jingle (0 disables it).
+@export_range(0, 10000, 1, "or_greater", "hide_slider")
+var milestone_points: int = 100
+
+@export_group("Audio")
+
+@export_range(-40.0, 12.0, 0.1)
+var sfx_volume_db: float = -6.0
+
+## Extra volume of the turtle hop, so it doesn't cover the player's sounds.
+@export_range(-40.0, 12.0, 0.1)
+var turtle_hop_volume_db: float = -8.0

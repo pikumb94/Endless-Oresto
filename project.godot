@@ -19,6 +19,10 @@ run/main_scene="uid://ifmtfsh8pof0"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Sfx="*res://Game/sfx.gd"
+
 [display]
 
 window/size/viewport_width=500

@@ -43,6 +43,9 @@ func _physics_process(delta: float) -> void:
 	distance += speed * delta
 	var new_score := int(distance * params.score_per_pixel)
 	if new_score != score:
+		@warning_ignore("integer_division")
+		if params.milestone_points > 0 and new_score / params.milestone_points > score / params.milestone_points:
+			Sfx.play(&"point")
 		score = new_score
 		hud.update_score(score, high_score)
 
@@ -52,6 +55,7 @@ func _physics_process(delta: float) -> void:
 func _process(_delta: float) -> void:
 	if is_game_over and Input.is_action_just_pressed("jump") \
 			and _now() - game_over_time >= params.restart_delay:
+		Sfx.play(&"restart")
 		get_tree().paused = false
 		get_tree().reload_current_scene()
 
@@ -78,6 +82,7 @@ func _on_obstacle_hit() -> void:
 		_save_high_score()
 	hud.update_score(score, high_score)
 	hud.show_game_over()
+	Sfx.play(&"hit")
 	get_tree().paused = true
 
 
